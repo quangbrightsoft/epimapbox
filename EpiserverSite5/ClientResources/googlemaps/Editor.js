@@ -81,7 +81,7 @@ function (
             var that = this; // Reduce number of scope binds
             registry.byClass("dijit.layout.TabContainer").forEach(function (tab, i) {
                 aspect.after(tab, "selectChild", function () {
-                    that.alignMap();
+                    //that.alignMap();
                 });
             });
 
@@ -122,18 +122,19 @@ function (
             }
 
             const googleMapsScriptUrl = "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=" + this.apiKey;
-
+            const gljsUrl = "https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js";
+            const mapjsUrl = "https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js";
+            
             this._mapLoadPromise = new Deferred();
-
             // Load Google Maps script
-            Async.load(googleMapsScriptUrl, function () {
-
+            Async.load(mapjsUrl, function () {
                 this.initializeMap();
 
                 // HACK Give EPiServer UI some time to load the view before resizing the map to ensure it aligns even after being hidden/displayed
                 // TODO Replace with event/aspect for when the edit view changes in the UI
+
                 setTimeout(function () {
-                    this.alignMap();
+                    //this.alignMap();
                 }.bind(this), 250);
 
                 this._mapScriptAdded = true;
@@ -328,16 +329,15 @@ function (
         // Setup the Google Maps canvas
         initializeMap: function () {
 
-            var defaultCoordinates = new google.maps.LatLng(this.defaultCoordinates.latitude, this.defaultCoordinates.longitude);
-
+          
             // Center on current coordinates (i.e. property value), or a default location if no coordinates are set
             if (this.hasCoordinates()) {
                 if (typeof this.value === "string") {
                     var coordinates = this.value.split(',');
-                    defaultCoordinates = new google.maps.LatLng(parseFloat(coordinates[0]), parseFloat(coordinates[1]));
+                    defaultCoordinates = new L.LatLng(parseFloat(coordinates[0]), parseFloat(coordinates[1]));
                 }
                 else if (typeof this.value === "object") {
-                    defaultCoordinates = new google.maps.LatLng(this.value.latitude, this.value.longitude);
+                    defaultCoordinates = new L.LatLng(this.value.latitude, this.value.longitude);
                 }
             }
 
@@ -345,65 +345,74 @@ function (
             var mapOptions = {
                 zoom: this.defaultZoom,
                 disableDefaultUI: true,
-                center: defaultCoordinates,
                 disableDoubleClickZoom: this.readOnly,
                 scrollwheel: !this.readOnly,
                 draggable: !this.readOnly
             };
 
-            // Load the map
-            this._map = new google.maps.Map(this.canvas, mapOptions);
 
-            // Display grayscale map if property is readonly
-            if (this.readOnly) {
+            //L.mapbox.accessToken = 'sk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxsczc1MDJnOTJwcWx1c3F5OWhpMyJ9.VnPV3Y0ZWLTpZaeK8_Lojg';
+            L.mapbox.accessToken = 'pk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxpNGNvMGFrYzJyb2QzNjJpOGR0diJ9.fwBENvuqXz1O3zrCzCYLcA';
+            this._map = L.mapbox.map('map')
+                .setView([this.defaultCoordinates.latitude, this.defaultCoordinates.longitude], 9)
+                .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'))
 
-                var grayStyle = [{
-                    featureType: "all",
-                    elementType: "all",
-                    stylers: [{ saturation: -100 }]
-                }];
 
-                var mapType = new google.maps.StyledMapType(grayStyle, { name: "Grayscale" });
+            //// Load the map
+            //this._map = new google.maps.Map(this.canvas, mapOptions);
 
-                this._map.mapTypes.set('disabled', mapType);
+            //// Display grayscale map if property is readonly
+            //if (this.readOnly) {
 
-                this._map.setMapTypeId('disabled');
-            }
+            //    var grayStyle = [{
+            //        featureType: "all",
+            //        elementType: "all",
+            //        stylers: [{ saturation: -100 }]
+            //    }];
 
-            // Add a marker to indicate the current coordinates, if any
-            if (this.hasCoordinates()) {
-                this._marker = new google.maps.Marker({
-                    position: this._map.getCenter(),
-                    map: this._map
-                });
-            }
+            //    var mapType = new google.maps.StyledMapType(grayStyle, { name: "Grayscale" });
 
-            // Allow user to change coordinates unless property is readonly
+            //    this._map.mapTypes.set('disabled', mapType);
+
+            //    this._map.setMapTypeId('disabled');
+            //}
+
+            //// Add a marker to indicate the current coordinates, if any
+            //if (this.hasCoordinates()) {
+            //    this._marker = new google.maps.Marker({
+            //        position: this._map.getCenter(),
+            //        map: this._map
+            //    });
+            //}
+
+            //// Allow user to change coordinates unless property is readonly
             if (!this.readOnly) {
 
                 var that = this;
-
+                this._map.on('click', function (e) {
+                    that.setMapLocation(e.latlng, null, false);
+                });
                 // Update map marker and coordinate textboxes when map is right-clicked
-                google.maps.event.addListener(this._map, "rightclick", function (event) {
-                    that.setMapLocation(event.latLng, null, false);
-                });
+              //L.event.addListener(this._map, "rightclick", function (event) {
+              //      that.setMapLocation(event.latLng, null, false);
+              //  });
 
-                // Add search textbox and when a place is selected, move pin and center map
-                var searchBox = new google.maps.places.SearchBox(this.searchTextbox.textbox);
+              //  // Add search textbox and when a place is selected, move pin and center map
+              //  var searchBox = new google.maps.places.SearchBox(this.searchTextbox.textbox);
 
-                // Remove Google Maps Searchbox default placeholder, as it won't recognize the placeholder attribute placed on the Textbox dijit
-                this.searchTextbox.textbox.setAttribute('placeholder', '');
+              //  // Remove Google Maps Searchbox default placeholder, as it won't recognize the placeholder attribute placed on the Textbox dijit
+              //  this.searchTextbox.textbox.setAttribute('placeholder', '');
 
-                google.maps.event.addListener(searchBox, 'places_changed', function () {
-                    var places = searchBox.getPlaces();
+              // L.event.addListener(searchBox, 'places_changed', function () {
+              //      var places = searchBox.getPlaces();
 
-                    if (places.length == 0) {
-                        return;
-                    }
-                    // Return focus to the textbox to ensure autosave works correctly and to also give a nice editor experience
-                    that.searchTextbox.focus();
-                    that.setMapLocation(places[0].geometry.location, 15, true);
-                });
+              //      if (places.length == 0) {
+              //          return;
+              //      }
+              //      // Return focus to the textbox to ensure autosave works correctly and to also give a nice editor experience
+              //      that.searchTextbox.focus();
+              //      that.setMapLocation(places[0].geometry.location, 15, true);
+              //  });
             } else {
                 // Disable search box and clear button
                 this.searchTextbox.set("disabled", true);
@@ -427,7 +436,7 @@ function (
 
             // Set the marker's position
             if (!this._marker) { // No marker yet, create one
-                this._marker = new google.maps.Marker({
+                this._marker = new L.Marker({
                     map: this._map
                 });
             }

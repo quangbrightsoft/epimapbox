@@ -376,7 +376,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="modules\_protected\TedGustaf.Episerver.GoogleMapsEditor\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\EPiServerDB_9ad30163.mdf" />
     <Content Include="App_Data\EPiServerDB_9ad30163_log.ldf">
@@ -466,7 +468,6 @@
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
     <Content Include="module.config" />
-    <Content Include="modules\_protected\TedGustaf.Episerver.GoogleMapsEditor\TedGustaf.Episerver.GoogleMapsEditor.zip" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\FindTemplateHint.cshtml" />
     <Content Include="Views\GDPRapiDemoPage\_TrackSanitizerPatternsOverview.cshtml" />
