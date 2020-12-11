@@ -290,7 +290,7 @@ function (
 
             if (longitude === undefined || latitude === undefined) {
                 return;
-            }
+            } 
 
             // Get the new value in the correct format
             var value;
@@ -431,21 +431,20 @@ function (
         setMapLocation: function (/* google.maps.LatLng */ location, zoom, center) {
 
             // Set the values of the coordinate textboxes to longitude and latitude, respectively
-            this.longitudeTextbox.set('value', location.lng());
-            this.latitudeTextbox.set('value', location.lat());
-
+            this.longitudeTextbox.set('value', location.lng);
+            this.latitudeTextbox.set('value', location.lat);
+            var latLng = L.latLng(location.lat, location.lng);
             // Set the marker's position
             if (!this._marker) { // No marker yet, create one
-                this._marker = new L.Marker({
-                    map: this._map
-                });
+                this._marker = new L.Marker(latLng);
+                this._marker.addTo(this._map);
+            } else {
+                this._marker.setLatLng(latLng);
             }
-
-            this._marker.setPosition(location);
 
             // Center on the location (optional)
             if (center) {
-                this._map.setCenter(location);
+                this._map.panTo(latLng);
             }
 
             // Set map zoom level (optional)
