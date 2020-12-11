@@ -1,6 +1,7 @@
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using EPiServer.GoogleMapsEditor;
 using EPiServer.Shell.ObjectEditing;
 using EPiServer.Shell.ObjectEditing.EditorDescriptors;
 using System;
@@ -35,7 +36,7 @@ namespace EpiserverSite5.Models.Pages
     }
 
     [EditorDescriptorRegistration(TargetType = typeof(string), UIHint = UIHint, EditorDescriptorBehavior = EditorDescriptorBehavior.OverrideDefault)]
-    public class CustomGoogleMapsEditorDescriptor : CustomGoogleMapsEditorDescriptorBase
+    public class CustomGoogleMapsEditorDescriptor : MapboxEditor
     {
         public override void ModifyMetadata(ExtendedMetadata metadata, IEnumerable<Attribute> attributes)
         {
@@ -51,23 +52,4 @@ namespace EpiserverSite5.Models.Pages
         }
     }
 
-    public abstract class CustomGoogleMapsEditorDescriptorBase : EditorDescriptor
-    {
-        public const string UIHint = "CustomGoogleMaps";
-
-        protected CustomGoogleMapsEditorDescriptorBase() { }
-
-        public override void ModifyMetadata(ExtendedMetadata metadata, IEnumerable<Attribute> attributes)
-        {
-            ClientEditingClass = "brightsoftgooglemaps/Editor";
-            metadata.EditorConfiguration.Add("apiKey", "AIzaSyCCkZI3w943tyqyZCkbbEB2Pl1W0eH1WPc");
-            metadata.EditorConfiguration.Add("defaultZoom", 5);
-            metadata.EditorConfiguration.Add("defaultCoordinates", new
-            {
-                latitude = 59.336,
-                longitude = 18.063
-            });
-            base.ModifyMetadata(metadata, attributes);
-        }
-    }
 }

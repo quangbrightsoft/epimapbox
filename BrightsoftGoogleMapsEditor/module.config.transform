@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<module>
+  <dojo>
+	  <clientResources>
+		  <add name="styles-maps" path="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css" resourceType="Style"/>
+	  </clientResources>
+    <paths>
+		<add name="epimapbox" path="epimapbox" />
+    </paths>
+  </dojo>
+</module>

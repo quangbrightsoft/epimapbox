@@ -63,7 +63,7 @@
             defaultCoordinates: null,
 
             // Load HTML template from the same location as the widget
-            templateString: dojo.cache("brightsoftgooglemaps", "WidgetTemplate.html"),
+            templateString: dojo.cache("epimapbox", "WidgetTemplate.html"),
 
             // Event used to notify EPiServer that the property value has changed
             onChange: function (value) {
