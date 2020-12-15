@@ -1,11 +1,14 @@
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using EPiServer.ServiceLocation;
 using EPiServer.Shell.ObjectEditing;
 using EPiServer.Shell.ObjectEditing.EditorDescriptors;
+using Geta.SEO.MapsEditors.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace EpiserverSite5.Models.Pages
 {
@@ -37,17 +40,20 @@ namespace EpiserverSite5.Models.Pages
     [EditorDescriptorRegistration(TargetType = typeof(string), UIHint = UIHint, EditorDescriptorBehavior = EditorDescriptorBehavior.OverrideDefault)]
     public class CustomGoogleMapsEditorDescriptor : MapboxEditor
     {
+        public Injected<IMapsEditorRepository> MapsEditorRepository { get; set; }
+
         public override void ModifyMetadata(ExtendedMetadata metadata, IEnumerable<Attribute> attributes)
         {
             base.ModifyMetadata(metadata, attributes);
-            // API key for the Google Maps JavaScript API
-            metadata.EditorConfiguration["apiKey"] = "AIzaSyBq1SPFg-CEcwMmBS03NS6Ofsk68gPQgsE";
-
-            // Default zoom level from 1 (least) to 20 (most)
-            metadata.EditorConfiguration["defaultZoom"] = 5;
-
-            // Default coordinates when no property value is set
-            metadata.EditorConfiguration["defaultCoordinates"] = new { latitude = 21.002449485238547, longitude = 105.80183683128283 };
+            var savedConfig = MapsEditorRepository.Service.GetAllMapsEditorData().FirstOrDefault();
+            metadata.EditorConfiguration["apiKey"] = savedConfig.ApiKey ?? "pk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxpNGNvMGFrYzJyb2QzNjJpOGR0diJ9.fwBENvuqXz1O3zrCzCYLcA";
+            metadata.EditorConfiguration["defaultZoom"] = savedConfig.ZoomLevel != default ? savedConfig.ZoomLevel : 5;
+            metadata.EditorConfiguration["styleUrl"] = savedConfig.StyleUrl ?? "mapbox://styles/mapbox/light-v10";
+            metadata.EditorConfiguration["defaultCoordinates"] = new
+            {
+                latitude = savedConfig.DefaultLatitude != default ? savedConfig.DefaultLatitude : 21.002449485238547,
+                longitude = savedConfig.DefaultLongitude != default ? savedConfig.DefaultLongitude : 105.80183683128283
+            };
         }
     }
     public abstract class MapboxEditor : EditorDescriptor

@@ -59,6 +59,7 @@
 
             // Property settings (set by editor descriptor)
             apiKey: null,
+            styleUrl: null,
             defaultZoom: null,
             defaultCoordinates: null,
 
@@ -134,7 +135,7 @@
                     setTimeout(function () {
                         this._map.invalidateSize();
                         //this.alignMap();
-                    }.bind(this), 5000);
+                    }.bind(this), 2000);
 
                     this._mapScriptAdded = true;
 
@@ -351,10 +352,10 @@
 
 
                 //L.mapbox.accessToken = 'sk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxsczc1MDJnOTJwcWx1c3F5OWhpMyJ9.VnPV3Y0ZWLTpZaeK8_Lojg';
-                L.mapbox.accessToken = 'pk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxpNGNvMGFrYzJyb2QzNjJpOGR0diJ9.fwBENvuqXz1O3zrCzCYLcA';
+                L.mapbox.accessToken = this.apiKey;
                 this._map = L.mapbox.map('mapbox-canvas')
-                    .setView([this.defaultCoordinates.latitude, this.defaultCoordinates.longitude], 12)
-                    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'))
+                    .setView([this.defaultCoordinates.latitude, this.defaultCoordinates.longitude], parseInt(this.defaultZoom))
+                    .addLayer(L.mapbox.styleLayer(this.styleUrl))
                     .addControl(L.mapbox.geocoderControl('mapbox.places', {
                         //keepOpen: true
                     }));
