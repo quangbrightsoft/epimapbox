@@ -63,7 +63,7 @@
             defaultCoordinates: null,
 
             // Load HTML template from the same location as the widget
-            templateString: dojo.cache("brss-map-editor", "WidgetTemplate.html"),
+            templateString: dojo.cache("brss", "WidgetTemplate.html"),
 
             // Event used to notify EPiServer that the property value has changed
             onChange: function (value) {
@@ -134,7 +134,7 @@
                     setTimeout(function () {
                         this._map.invalidateSize();
                         //this.alignMap();
-                    }.bind(this), 2000);
+                    }.bind(this), 5000);
 
                     this._mapScriptAdded = true;
 
@@ -352,9 +352,9 @@
 
                 //L.mapbox.accessToken = 'sk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxsczc1MDJnOTJwcWx1c3F5OWhpMyJ9.VnPV3Y0ZWLTpZaeK8_Lojg';
                 L.mapbox.accessToken = 'pk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxpNGNvMGFrYzJyb2QzNjJpOGR0diJ9.fwBENvuqXz1O3zrCzCYLcA';
-                this._map = L.mapbox.map('map')
+                this._map = L.mapbox.map('mapbox-canvas')
                     .setView([this.defaultCoordinates.latitude, this.defaultCoordinates.longitude], 12)
-                    .addLayer(L.mapbox.styleLayer('mapbox://styles/lequang1024/ckijprpzj07cq17ujvhr0fqoy'))
+                    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'))
                     .addControl(L.mapbox.geocoderControl('mapbox.places', {
                         //keepOpen: true
                     }));
