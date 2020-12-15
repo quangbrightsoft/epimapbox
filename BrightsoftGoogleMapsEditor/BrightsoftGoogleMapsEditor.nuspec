@@ -1,21 +1,26 @@
 <?xml version="1.0"?>
 <package >
-  <metadata>
-    <id>EpiMapbox</id>
-    <version>1.0.0</version>
-    <authors>Quang Le</authors>
-    <owners>Quang Le</owners>
-    <licenseUrl>https://github.com/tedgustaf/episerver-google-maps-editor/wiki/License</licenseUrl>
-    <projectUrl>https://github.com/tedgustaf/episerver-google-maps-editor/</projectUrl>
-    <iconUrl>http://maps.gstatic.com/favicon3.ico</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Editor for specifying latitude and longitude coordinates for EPiServer content properties using an interactive map.</description>
-    <releaseNotes>Informative watermark in search box.</releaseNotes>
-    <copyright>Copyright 2020</copyright>
-    <tags>EPiServer UI</tags>
-    <dependencies>
-      <dependency id="EPiServer.CMS.Core" version="[10.0.1,12]" />
-      <dependency id="EPiServer.CMS.UI.Core" version="[10.0.2,12]" />
-    </dependencies>
-  </metadata>
+	<metadata>
+		<id>BrssMapsEditor</id>
+		<version>1.0.5</version>
+		<authors>Quang Le</authors>
+		<owners>Quang Le</owners>
+		<iconUrl>http://maps.gstatic.com/favicon3.ico</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Mapbox editor for specifying latitude and longitude coordinates for EPiServer content properties using an interactive map.</description>
+		<releaseNotes>Informative watermark in search box.</releaseNotes>
+		<copyright>Copyright 2020</copyright>
+		<tags>EPiServerModulePackage EPiServer UI</tags>
+		<dependencies>
+			<dependency id="EPiServer.CMS.Core" version="[10.0.1,12]" />
+			<dependency id="EPiServer.CMS.UI.Core" version="[10.0.2,12]" />
+		</dependencies>
+		<!-- <contentFiles>
+		</contentFiles> -->
+	</metadata>
+	<files>
+		<file src="bin\$configuration$\BrssMapsEditor.dll" target="lib\net45\" />
+		<file src="src\modules\_protected\BrssMapsEditor\BrssMapsEditor.zip" target="content\modules\_protected\BrssMapsEditor\" />
+		<file src="web.config.transform" target="content" />
+	</files>
 </package>

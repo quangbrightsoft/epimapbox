@@ -1,11 +1,19 @@
 ﻿using EPiServer.Core;
 using EPiServer.PlugIn;
 
-namespace EPiServer.GoogleMapsEditor
+namespace BrightsoftGoogleMapsEditor
 {
     [PropertyDefinitionTypePlugIn]
-    public class PropertyMapCoordinates : PropertyString
+    public class MapCoordinatesProperty : PropertyList<string>
     {
+        public override PropertyData ParseToObject(string value)
+        {
+            throw new System.NotImplementedException();
+        }
 
+        protected override string ParseItem(string value)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -1,7 +1,7 @@
+using BrightsoftGoogleMapsEditor;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
-using EPiServer.GoogleMapsEditor;
 using EPiServer.Shell.ObjectEditing;
 using EPiServer.Shell.ObjectEditing.EditorDescriptors;
 using System;
@@ -31,7 +31,7 @@ namespace EpiserverSite5.Models.Pages
         [Display(
             GroupName = SystemTabNames.Content,
             Order = 320)]
-        [UIHint("CustomGoogleMaps")]
+        [UIHint("MapboxEditor")]
         public virtual string Coordinates { get; set; }
     }
 
@@ -42,6 +42,7 @@ namespace EpiserverSite5.Models.Pages
         {
             base.ModifyMetadata(metadata, attributes);
             // API key for the Google Maps JavaScript API
+            ClientEditingClass = "brssMapsEditor/Editor";
             metadata.EditorConfiguration["apiKey"] = "AIzaSyBq1SPFg-CEcwMmBS03NS6Ofsk68gPQgsE";
 
             // Default zoom level from 1 (least) to 20 (most)

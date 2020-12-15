@@ -7,8 +7,8 @@
     <ProjectGuid>{7A2A2BA3-4E0E-4A19-AAE9-367B0A0BB92B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EPiServer.GoogleMapsEditor</RootNamespace>
-    <AssemblyName>EPiServer.GoogleMapsEditor</AssemblyName>
+    <RootNamespace>BrssMapsEditor</RootNamespace>
+    <AssemblyName>BrssMapsEditor</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -175,25 +175,32 @@
     <None Include="app.config" />
     <None Include="BrightsoftGoogleMapsEditor.nuspec" />
     <None Include="LICENSE" />
-    <None Include="module.config" />
     <None Include="module.config.transform" />
+    <None Include="pack.cmd" />
+    <None Include="pack.ps1" />
     <None Include="packages.config" />
     <None Include="README.md" />
+    <None Include="src\modules\_protected\BrssMapsEditor\module.config" />
+    <None Include="web.config.transform" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="BrightsoftGoogleMapsEditor.sln" />
-    <Content Include="ClientResources\epimapbox\Async.js" />
-    <Content Include="ClientResources\epimapbox\Editor.js" />
-    <Content Include="ClientResources\epimapbox\nls\Labels.js" />
-    <Content Include="ClientResources\epimapbox\nls\sv\Labels.js" />
-    <Content Include="ClientResources\epimapbox\WidgetTemplate.css" />
-    <Content Include="ClientResources\epimapbox\WidgetTemplate.html" />
+    <Content Include="nuget.exe" />
+    <Content Include="src\modules\_protected\BrssMapsEditor\1.0.0\Async.js" />
+    <Content Include="src\modules\_protected\BrssMapsEditor\1.0.0\Editor.js" />
+    <Content Include="src\modules\_protected\BrssMapsEditor\1.0.0\nls\Labels.js" />
+    <Content Include="src\modules\_protected\BrssMapsEditor\1.0.0\nls\sv\Labels.js" />
+    <Content Include="src\modules\_protected\BrssMapsEditor\1.0.0\WidgetTemplate.css" />
+    <Content Include="src\modules\_protected\BrssMapsEditor\1.0.0\WidgetTemplate.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ClientResources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>nuget pack "$(ProjectDir)BrightsoftGoogleMapsEditor.csproj" -OutputDirectory "$(ProjectDir)nuget"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
