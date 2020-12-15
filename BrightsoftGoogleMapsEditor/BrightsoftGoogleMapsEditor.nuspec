@@ -7,7 +7,7 @@
 		<owners>Quang Le</owners>
 		<iconUrl>http://maps.gstatic.com/favicon3.ico</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<description>Mapbox editor for specifying latitude and longitude coordinates for EPiServer content properties using an interactive map.</description>
+		<description>maps addon</description>
 		<releaseNotes>Informative watermark in search box.</releaseNotes>
 		<copyright>Copyright 2020</copyright>
 		<tags>EPiServerModulePackage EPiServer UI</tags>

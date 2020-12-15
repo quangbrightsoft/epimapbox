@@ -11,7 +11,7 @@ namespace BrightsoftGoogleMapsEditor
 
         public override void ModifyMetadata(ExtendedMetadata metadata, IEnumerable<Attribute> attributes)
         {
-            ClientEditingClass = "BrssMapsEditor/Editor";
+            ClientEditingClass = "brss-map-editor/Editor";
             metadata.EditorConfiguration.Add("apiKey", "AIzaSyCCkZI3w943tyqyZCkbbEB2Pl1W0eH1WPc");
             metadata.EditorConfiguration.Add("defaultZoom", 5);
             metadata.EditorConfiguration.Add("defaultCoordinates", new

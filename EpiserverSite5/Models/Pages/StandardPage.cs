@@ -1,3 +1,4 @@
+using BrightsoftGoogleMapsEditor;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
@@ -41,6 +42,7 @@ namespace EpiserverSite5.Models.Pages
         {
             base.ModifyMetadata(metadata, attributes);
             // API key for the Google Maps JavaScript API
+            ClientEditingClass = "brss-maps-editor/Editor";
             metadata.EditorConfiguration["apiKey"] = "AIzaSyBq1SPFg-CEcwMmBS03NS6Ofsk68gPQgsE";
 
             // Default zoom level from 1 (least) to 20 (most)
@@ -48,23 +50,6 @@ namespace EpiserverSite5.Models.Pages
 
             // Default coordinates when no property value is set
             metadata.EditorConfiguration["defaultCoordinates"] = new { latitude = 21.002449485238547, longitude = 105.80183683128283 };
-        }
-    }
-    public abstract class MapboxEditor : EditorDescriptor
-    {
-        public const string UIHint = "MapboxEditor";
-
-        public override void ModifyMetadata(ExtendedMetadata metadata, IEnumerable<Attribute> attributes)
-        {
-            ClientEditingClass = "brss/Editor";
-            metadata.EditorConfiguration.Add("apiKey", "AIzaSyCCkZI3w943tyqyZCkbbEB2Pl1W0eH1WPc");
-            metadata.EditorConfiguration.Add("defaultZoom", 5);
-            metadata.EditorConfiguration.Add("defaultCoordinates", new
-            {
-                latitude = 59.336,
-                longitude = 18.063
-            });
-            base.ModifyMetadata(metadata, attributes);
         }
     }
 }
