@@ -1,11 +1,11 @@
-using EPiServer.Data;
-using EPiServer.Data.Dynamic;
-using EPiServer.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using EPiServer.Data;
+using EPiServer.Data.Dynamic;
+using EPiServer.ServiceLocation;
 
-namespace Geta.SEO.MapsEditors.Repositories
+namespace EpiserverSite5.Services
 {
     [EPiServerDataStore(AutomaticallyCreateStore = true, AutomaticallyRemapStore = true)]
     public class MapsEditorData

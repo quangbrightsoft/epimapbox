@@ -10,6 +10,8 @@ using System.Web.Profile;
 using EPiServer.Security;
 using EPiServer.DataAbstraction;
 using EPiServer.Personalization;
+using EpiserverSite5.Business;
+using EpiserverSite5.Models.Register;
 
 namespace EpiserverSite5.Controllers
 {

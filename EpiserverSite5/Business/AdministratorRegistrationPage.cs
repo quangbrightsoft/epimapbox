@@ -1,12 +1,12 @@
-using EPiServer.ServiceLocation;
-using EPiServer.Shell.Security;
-using Owin;
 using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using EPiServer.ServiceLocation;
+using EPiServer.Shell.Security;
+using Owin;
 
-namespace EpiserverSite5
+namespace EpiserverSite5.Business
 {
     public static class AdministratorRegistrationPage
     {

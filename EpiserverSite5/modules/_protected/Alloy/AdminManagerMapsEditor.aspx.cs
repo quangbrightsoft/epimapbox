@@ -1,17 +1,18 @@
 // Copyright (c) Geta Digital. All rights reserved.
 // Licensed under Apache-2.0. See the LICENSE file in the project root for more information
 
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Web.UI.WebControls;
 using EPiServer;
 using EPiServer.PlugIn;
 using EPiServer.Security;
 using EPiServer.ServiceLocation;
-using Geta.SEO.MapsEditors.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.UI.WebControls;
+using EpiserverSite5.Services;
 
-namespace Geta.SEO.Sitemaps.Modules.Geta.SEO.Sitemaps
+namespace EpiserverSite5.modules._protected.Alloy
 {
     [GuiPlugIn(Area = PlugInArea.AdminMenu,
         DisplayName = "Map editor Settings",
@@ -74,12 +75,13 @@ namespace Geta.SEO.Sitemaps.Modules.Geta.SEO.Sitemaps
         private void BindList()
         {
             var savedValues = MapsEditorRepository.Service.GetAllMapsEditorData().FirstOrDefault();
+            if (savedValues == default) return;
             availableServices.SelectedValue = savedValues?.Service.ToString() ?? "";
             styleUrl.Text = savedValues.StyleUrl;
             apiKey.Text = savedValues.ApiKey;
             zoomLevel.Text = savedValues.ZoomLevel.ToString();
-            defaultLongitude.Text = savedValues.DefaultLongitude.ToString();
-            defaultLatitude.Text = savedValues.DefaultLatitude.ToString();
+            defaultLongitude.Text = savedValues.DefaultLongitude.ToString(CultureInfo.InvariantCulture);
+            defaultLatitude.Text = savedValues.DefaultLatitude.ToString(CultureInfo.InvariantCulture);
         }
 
         private void PopulateServiceListControl()

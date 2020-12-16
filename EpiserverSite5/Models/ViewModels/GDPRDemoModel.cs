@@ -3,6 +3,7 @@ using EpiserverSite5.Models.ViewModels;
 using System.Collections.Generic;
 using System.Web;
 using EPiServer.Find.Statistics;
+using EpiserverSite5.Models.Pages;
 
 namespace EpiserverSite5.Models.ViewModels
 {

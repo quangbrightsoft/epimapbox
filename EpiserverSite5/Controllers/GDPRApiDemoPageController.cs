@@ -6,6 +6,7 @@ using EPiServer.Find.Statistics;
 using EpiserverSite5.Controllers;
 using EpiserverSite5.Models.ViewModels;
 using System.Web.Mvc;
+using EpiserverSite5.Models.Pages;
 
 namespace EpiserverSite5.Controllers
 {

@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="False" CodeBehind="AdminManagerMapsEditor.aspx.cs" EnableViewState="true" Inherits="Geta.SEO.Sitemaps.Modules.Geta.SEO.Sitemaps.AdminManageSitemap" %>
+<%@ Page Language="C#" AutoEventWireup="False" CodeBehind="AdminManagerMapsEditor.aspx.cs" EnableViewState="true" Inherits="EpiserverSite5.modules._protected.Alloy.AdminManageSitemap" %>
 
 <%@ Register TagPrefix="EPiServerUI" Namespace="EPiServer.UI.WebControls" Assembly="EPiServer.UI" %>
 
@@ -9,7 +9,7 @@
         <div class="epi-contentArea">
             <EPiServerUI:SystemPrefix ID="SystemPrefixControl" runat="server" />
             <asp:ValidationSummary ID="ValidationSummary" runat="server" CssClass="EP-validationSummary" ForeColor="Black" />
-            <%= System.Web.Helpers.AntiForgery.GetHtml() %>
+            <%= AntiForgery.GetHtml() %>
         </div>
         <style type="text/css">
             a.add-button {
@@ -100,7 +100,7 @@
                         </div>
                         <div>
                             <asp:Button ID="btnNew" runat="server" Text="Save" OnClick="btnSave_Click"
-                                CssClass="add-button epi-cmsButton-text epi-cmsButton-tools epi-cmsButton-Add"></asp:Button>
+                                        CssClass="add-button epi-cmsButton-text epi-cmsButton-tools epi-cmsButton-Add"/>
                         </div>
                     </div>
                 </div>

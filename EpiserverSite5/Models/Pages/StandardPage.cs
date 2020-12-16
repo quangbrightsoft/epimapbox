@@ -4,11 +4,11 @@ using EPiServer.DataAnnotations;
 using EPiServer.ServiceLocation;
 using EPiServer.Shell.ObjectEditing;
 using EPiServer.Shell.ObjectEditing.EditorDescriptors;
-using Geta.SEO.MapsEditors.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using EpiserverSite5.Services;
 
 namespace EpiserverSite5.Models.Pages
 {

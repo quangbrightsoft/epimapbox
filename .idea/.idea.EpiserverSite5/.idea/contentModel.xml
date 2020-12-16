@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\admin\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\admin\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_EpiserverSite5.-1563879380.00" t="ExcludeRecursive" />
+    <e p="C:\Users\admin\source\repos\epiMapbox" t="IncludeFlat">
+      <e p="BrightsoftGoogleMapsEditor" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
+        <e p="app.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="BrightsoftGoogleMapsEditor.csproj" t="IncludeRecursive" />
+        <e p="BrightsoftGoogleMapsEditor.nuspec" t="Include" />
+        <e p="BrightsoftGoogleMapsEditor.sln" t="Include" />
+        <e p="ClientResources" t="Include" />
+        <e p="GoogleMapsEditor.cs" t="Include" />
+        <e p="LICENSE" t="Include" />
+        <e p="module.config.transform" t="Include" />
+        <e p="nuget.exe" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="pack.cmd" t="Include" />
+        <e p="pack.ps1" t="Include" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="PropertyMapCoordinates.cs" t="Include" />
+        <e p="README.md" t="Include" />
+        <e p="src" t="Include">
+          <e p="modules" t="Include">
+            <e p="_protected" t="Include">
+              <e p="BrssMapsEditor" t="Include">
+                <e p="1.0.0" t="Include">
+                  <e p="Async.js" t="Include" />
+                  <e p="Editor.js" t="Include" />
+                  <e p="nls" t="Include">
+                    <e p="Labels.js" t="Include" />
+                    <e p="sv" t="Include">
+                      <e p="Labels.js" t="Include" />
+                    </e>
+                  </e>
+                  <e p="WidgetTemplate.css" t="Include" />
+                  <e p="WidgetTemplate.html" t="Include" />
+                </e>
+                <e p="module.config" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="web.config.transform" t="Include" />
+      </e>
+      <e p="EpiserverSite5" t="IncludeRecursive">
+        <e p="App_Data" t="Include">
+          <e p="DefaultSiteContent.episerverdata" t="Include" />
+          <e p="EPiServerDB_9ad30163.mdf" t="Include" />
+          <e p="EPiServerDB_9ad30163_log.ldf" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Business" t="Include">
+          <e p="AdministratorRegistrationPage.cs" t="Include" />
+          <e p="Channels" t="Include">
+            <e p="DisplayResolutionBase.cs" t="Include" />
+            <e p="DisplayResolutions.cs" t="Include" />
+            <e p="MobileChannel.cs" t="Include" />
+            <e p="WebChannel.cs" t="Include" />
+          </e>
+          <e p="ContentExtensions.cs" t="Include" />
+          <e p="ContentLocator.cs" t="Include" />
+          <e p="EditorDescriptors" t="Include">
+            <e p="ContactPageSelectionFactory.cs" t="Include" />
+            <e p="ContactPageSelector.cs" t="Include" />
+            <e p="StringListEditorDescriptor.cs" t="Include" />
+          </e>
+          <e p="IModifyLayout.cs" t="Include" />
+          <e p="Initialization" t="Include">
+            <e p="BundleConfig.cs" t="Include" />
+            <e p="CustomizedRenderingInitialization.cs" t="Include" />
+            <e p="DependencyResolverInitialization.cs" t="Include" />
+            <e p="DisplayModesInitialization.cs" t="Include" />
+            <e p="DisplayRegistryInitialization.cs" t="Include" />
+            <e p="ExtendedTinyMceInitialization.cs" t="Include" />
+            <e p="FilterConfig.cs" t="Include" />
+          </e>
+          <e p="PageContextActionFilter.cs" t="Include" />
+          <e p="PageTypeExtensions.cs" t="Include" />
+          <e p="PageViewContextFactory.cs" t="Include" />
+          <e p="Rendering" t="Include">
+            <e p="AlloyContentAreaRenderer.cs" t="Include" />
+            <e p="ErrorHandlingContentRenderer.cs" t="Include" />
+            <e p="IContainerPage.cs" t="Include" />
+            <e p="ICustomCssInContentArea.cs" t="Include" />
+            <e p="SiteViewEngine.cs" t="Include" />
+            <e p="TemplateCoordinator.cs" t="Include" />
+          </e>
+          <e p="ServiceLocatorDependencyResolver.cs" t="Include" />
+          <e p="UIDescriptors" t="Include">
+            <e p="ContainerPageUIDescriptor.cs" t="Include" />
+          </e>
+        </e>
+        <e p="ClientResources" t="Include">
+          <e p="BrssMapsEditor" t="Include">
+            <e p="Async.js" t="Include" />
+            <e p="Editor.js" t="Include" />
+            <e p="nls" t="Include">
+              <e p="Labels.js" t="Include" />
+              <e p="sv" t="Include">
+                <e p="Labels.js" t="Include" />
+              </e>
+            </e>
+            <e p="WidgetTemplate.css" t="Include" />
+            <e p="WidgetTemplate.html" t="Include" />
+          </e>
+          <e p="Images" t="Include">
+            <e p="icons" t="Include">
+              <e p="layoutIcons24x24.png" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Editors" t="Include">
+              <e p="StringList.js" t="Include" />
+            </e>
+          </e>
+          <e p="Styles" t="Include">
+            <e p="LayoutIcons.css" t="Include" />
+            <e p="Styles.css" t="Include" />
+          </e>
+          <e p="Views" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="ContactBlockController.cs" t="Include" />
+          <e p="DefaultPageController.cs" t="Include" />
+          <e p="FindSearchPageController.cs" t="Include" />
+          <e p="GDPRApiDemoPageController.cs" t="Include" />
+          <e p="ImageFileController.cs" t="Include" />
+          <e p="PageControllerBase.cs" t="Include" />
+          <e p="PageListBlockController.cs" t="Include" />
+          <e p="PreviewController.cs" t="Include" />
+          <e p="RegisterController.cs" t="Include" />
+          <e p="StartPageController.cs" t="Include" />
+          <e p="VideoFileController.cs" t="Include" />
+        </e>
+        <e p="EPiServerLog.config" t="Include" />
+        <e p="EpiserverSite5.csproj" t="IncludeRecursive" />
+        <e p="favicon.ico" t="Include" />
+        <e p="Global.asax" t="Include" />
+        <e p="Global.asax.cs" t="Include" />
+        <e p="Global.cs" t="Include" />
+        <e p="Helpers" t="Include">
+          <e p="CategorizableExtensions.cs" t="Include" />
+          <e p="HtmlHelpers.cs" t="Include" />
+          <e p="UrlHelpers.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="Blocks" t="Include">
+            <e p="ButtonBlock.cs" t="Include" />
+            <e p="ContactBlock.cs" t="Include" />
+            <e p="EditorialBlock.cs" t="Include" />
+            <e p="JumbotronBlock.cs" t="Include" />
+            <e p="PageListBlock.cs" t="Include" />
+            <e p="SiteBlockData.cs" t="Include" />
+            <e p="SiteLogotypeBlock.cs" t="Include" />
+            <e p="TeaserBlock.cs" t="Include" />
+          </e>
+          <e p="Media" t="Include">
+            <e p="GenericMedia.cs" t="Include" />
+            <e p="ImageFile.cs" t="Include" />
+            <e p="VideoFile.cs" t="Include" />
+          </e>
+          <e p="Pages" t="Include">
+            <e p="ArticlePage.cs" t="Include" />
+            <e p="ContactPage.cs" t="Include" />
+            <e p="ContainerPage.cs" t="Include" />
+            <e p="FindSearchPage.cs" t="Include" />
+            <e p="GDPRApiDemoPage.cs" t="Include" />
+            <e p="IHasRelatedContent.cs" t="Include" />
+            <e p="ISearchPage.cs" t="Include" />
+            <e p="LandingPage.cs" t="Include" />
+            <e p="NewsPage.cs" t="Include" />
+            <e p="ProductPage.cs" t="Include" />
+            <e p="SitePageData.cs" t="Include" />
+            <e p="StandardPage.cs" t="Include" />
+            <e p="StartPage.cs" t="Include" />
+          </e>
+          <e p="Properties" t="Include">
+            <e p="PropertyStringList.cs" t="Include" />
+          </e>
+          <e p="Register" t="Include">
+            <e p="RegisterViewModel.cs" t="Include" />
+          </e>
+          <e p="SiteContentType.cs" t="Include" />
+          <e p="SiteImageUrl.cs" t="Include" />
+          <e p="ViewModels" t="Include">
+            <e p="ContactBlockModel.cs" t="Include" />
+            <e p="ContentRenderingErrorModel.cs" t="Include" />
+            <e p="FindSearchContentModel.cs" t="Include" />
+            <e p="GDPRDemoModel.cs" t="Include" />
+            <e p="ImageViewModel.cs" t="Include" />
+            <e p="IPageViewModel.cs" t="Include" />
+            <e p="LayoutModel.cs" t="Include" />
+            <e p="PageListModel.cs" t="Include" />
+            <e p="PageViewModel.cs" t="Include" />
+            <e p="PreviewModel.cs" t="Include" />
+            <e p="VideoViewModel.cs" t="Include" />
+          </e>
+        </e>
+        <e p="module.config" t="Include" />
+        <e p="modules" t="Include">
+          <e p="_protected" t="Include">
+            <e p="Alloy" t="Include">
+              <e p="AdminManagerMapsEditor.aspx" t="Include" />
+              <e p="AdminManagerMapsEditor.aspx.cs" t="Include" />
+              <e p="AdminManagerMapsEditor.aspx.designer.cs" t="Include" />
+            </e>
+            <e p="CMS" t="Include">
+              <e p="CMS.zip" t="Include" />
+              <e p="web.config" t="Include" />
+            </e>
+            <e p="EPiServer.Cms.TinyMce" t="Include">
+              <e p="EPiServer.Cms.TinyMce.zip" t="Include" />
+              <e p="web.config" t="Include" />
+            </e>
+            <e p="Shell" t="Include">
+              <e p="Shell.zip" t="Include" />
+              <e p="web.config" t="Include" />
+            </e>
+            <e p="TedGustaf.Episerver.GoogleMapsEditor" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="LanguageFiles" t="Include">
+            <e p="_ReadMe.txt" t="Include" />
+            <e p="ContentTypeNames.xml" t="Include" />
+            <e p="Display.xml" t="Include" />
+            <e p="EditorHints.xml" t="Include" />
+            <e p="FindViews.xml" t="Include" />
+            <e p="GroupNames.xml" t="Include" />
+            <e p="PropertyNames.xml" t="Include" />
+            <e p="Views.xml" t="Include" />
+          </e>
+        </e>
+        <e p="Services" t="Include">
+          <e p="MapsEditorService.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="Static" t="Include">
+          <e p="css" t="Include">
+            <e p="bootstrap-collapse.js" t="Include" />
+            <e p="bootstrap-responsive.css" t="Include" />
+            <e p="bootstrap.css" t="Include" />
+            <e p="editmode.css" t="Include" />
+            <e p="editor.css" t="Include" />
+            <e p="Images" t="Include">
+              <e p="ui-bg_flat_0_aaaaaa_40x100.png" t="Include" />
+              <e p="ui-bg_flat_75_ffffff_40x100.png" t="Include" />
+              <e p="ui-bg_glass_55_fbf9ee_1x400.png" t="Include" />
+              <e p="ui-bg_glass_65_ffffff_1x400.png" t="Include" />
+              <e p="ui-bg_glass_75_dadada_1x400.png" t="Include" />
+              <e p="ui-bg_glass_75_e6e6e6_1x400.png" t="Include" />
+              <e p="ui-bg_highlight-soft_75_cccccc_1x100.png" t="Include" />
+              <e p="ui-icons_222222_256x240.png" t="Include" />
+              <e p="ui-icons_2e83ff_256x240.png" t="Include" />
+              <e p="ui-icons_454545_256x240.png" t="Include" />
+              <e p="ui-icons_888888_256x240.png" t="Include" />
+              <e p="ui-icons_cd0a0a_256x240.png" t="Include" />
+            </e>
+            <e p="jquery-ui.css" t="Include" />
+            <e p="media.css" t="Include" />
+            <e p="style.css" t="Include" />
+          </e>
+          <e p="gfx" t="Include">
+            <e p="carouselbackground.png" t="Include" />
+            <e p="contact.jpg" t="Include" />
+            <e p="exampelspan4.png" t="Include" />
+            <e p="experts.png" t="Include" />
+            <e p="fallows-media-wide.jpg" t="Include" />
+            <e p="leader.png" t="Include" />
+            <e p="leader2.png" t="Include" />
+            <e p="logotype.png" t="Include" />
+            <e p="meet.jpg" t="Include" />
+            <e p="New_FDT_Press_Contact_.JPG" t="Include" />
+            <e p="page-type-thumbnail-article.png" t="Include" />
+            <e p="page-type-thumbnail-contact.png" t="Include" />
+            <e p="page-type-thumbnail-product.png" t="Include" />
+            <e p="page-type-thumbnail-standard.png" t="Include" />
+            <e p="page-type-thumbnail.png" t="Include" />
+            <e p="person.png" t="Include" />
+            <e p="plan.jpg" t="Include" />
+            <e p="play.png" t="Include" />
+            <e p="playInactive.png" t="Include" />
+            <e p="productLandingv2.png" t="Include" />
+            <e p="searchbutton.png" t="Include" />
+            <e p="searchbuttonsmall.png" t="Include" />
+            <e p="track.jpg" t="Include" />
+          </e>
+          <e p="html" t="Include">
+            <e p="error.htm" t="Include" />
+          </e>
+          <e p="img" t="Include">
+            <e p="glyphicons-halflings-white.png" t="Include" />
+            <e p="glyphicons-halflings.png" t="Include" />
+          </e>
+          <e p="js" t="Include">
+            <e p="bootstrap.js" t="Include" />
+            <e p="jquery-ui.js" t="Include" />
+            <e p="jquery.js" t="Include" />
+          </e>
+          <e p="jwplayer" t="Include">
+            <e p="jwplayer.js" t="Include" />
+            <e p="player.swf" t="Include" />
+            <e p="preview.jpg" t="Include" />
+            <e p="video.mp4" t="Include" />
+          </e>
+        </e>
+        <e p="Views" t="Include">
+          <e p="_viewstart.cshtml" t="Include" />
+          <e p="ArticlePage" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="ContactBlock" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="FindSearchPage" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="GDPRapiDemoPage" t="Include">
+            <e p="_TrackSanitizerPatternsOverview.cshtml" t="Include" />
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="ImageFile" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="LandingPage" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="NewsPage" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="PageListBlock" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Preview" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="ProductPage" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Register" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Shared" t="Include">
+            <e p="Blocks" t="Include">
+              <e p="ButtonBlock.cshtml" t="Include" />
+              <e p="EditorialBlock.cshtml" t="Include" />
+              <e p="JumbotronBlockWide.cshtml" t="Include" />
+              <e p="NoRenderer.cshtml" t="Include" />
+              <e p="SiteLogotypeBlock.cshtml" t="Include" />
+              <e p="TeaserBlock.cshtml" t="Include" />
+              <e p="TeaserBlockWide.cshtml" t="Include" />
+            </e>
+            <e p="Breadcrumbs.cshtml" t="Include" />
+            <e p="DisplayTemplates" t="Include">
+              <e p="ContactPage.cshtml" t="Include" />
+              <e p="DateTime.cshtml" t="Include" />
+              <e p="Image.cshtml" t="Include" />
+              <e p="StringsCollection.cshtml" t="Include" />
+            </e>
+            <e p="FindTemplateHint.cshtml" t="Include" />
+            <e p="Footer.cshtml" t="Include" />
+            <e p="Header.cshtml" t="Include" />
+            <e p="Layouts" t="Include">
+              <e p="_LeftNavigation.cshtml" t="Include" />
+              <e p="_Root.cshtml" t="Include" />
+              <e p="_TwoPlusOne.cshtml" t="Include" />
+            </e>
+            <e p="PagePartials" t="Include">
+              <e p="ContactPage.cshtml" t="Include" />
+              <e p="ContactPageWide.cshtml" t="Include" />
+              <e p="Page.cshtml" t="Include" />
+              <e p="PageWide.cshtml" t="Include" />
+            </e>
+            <e p="Readonly.cshtml" t="Include" />
+            <e p="SubNavigation.cshtml" t="Include" />
+            <e p="TemplateError.cshtml" t="Include" />
+            <e p="TemplateHint.cshtml" t="Include" />
+          </e>
+          <e p="StandardPage" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="StartPage" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="VideoFile" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="web.config" t="Include" />
+        </e>
+        <e p="web.config" t="Include" />
+        <e p="Web.Debug.config" t="Include" />
+        <e p="Web.Release.config" t="Include" />
+      </e>
+      <e p="EpiserverSite5.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
