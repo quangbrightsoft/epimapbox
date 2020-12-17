@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="aa4068fb-f2b5-4d5b-95bf-10a6cbaea96f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EpiserverSite5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EpiserverSite5/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.designer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,15 +26,15 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/EpiserverSite5/Services/MapsEditorService.cs" />
-      <option value="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.cs" />
-      <option value="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx" />
       <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/MapboxWidgetTemplate.html" />
-      <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/GoogleMapsWidgetTemplate.html" />
       <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/GoogleMapsEditor.js" />
       <option value="$PROJECT_DIR$/EpiserverSite5/Web.config" />
       <option value="$PROJECT_DIR$/EpiserverSite5/Models/Pages/StandardPage.cs" />
       <option value="$PROJECT_DIR$/EpiserverSite5/Models/Pages/StartPage.cs" />
       <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/Editor.js" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/GoogleMapsWidgetTemplate.html" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ljcH8e3WyjDp4BWhKpe7yZAmvk" />

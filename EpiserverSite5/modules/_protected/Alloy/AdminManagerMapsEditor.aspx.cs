@@ -35,7 +35,8 @@ namespace EpiserverSite5.modules._protected.Alloy
             var ddl = GeneralSettings.FindControl("availableServices") as DropDownList;
             var apiKey = GeneralSettings.FindControl("apiKey") as TextBox;
             var styleUrl = GeneralSettings.FindControl("styleUrl") as TextBox;
-            var savedValues = MapsEditorRepository.Service.GetAllMapsEditorData().FirstOrDefault() ?? new MapsEditorData();
+            var savedValues = MapsEditorRepository.Service.GetAllMapsEditorData().FirstOrDefault() ??
+                              new MapsEditorData();
 
             //var isLongValid = double.TryParse(defaultLongitude.Text,out var longitude);
             //var isLatValid = double.TryParse(defaultLatitude.Text,out var latitude);
@@ -44,7 +45,7 @@ namespace EpiserverSite5.modules._protected.Alloy
             //    ValidationSummary.te
             //}
 
-            savedValues.Service = (MapsEditorService)Enum.Parse(typeof(MapsEditorService), ddl.SelectedValue);
+            savedValues.Service = (MapsEditorService) Enum.Parse(typeof(MapsEditorService), ddl.SelectedValue);
             savedValues.ApiKey = apiKey.Text;
             savedValues.StyleUrl = styleUrl.Text;
             savedValues.ZoomLevel = int.Parse(zoomLevel.Text);
@@ -65,10 +66,12 @@ namespace EpiserverSite5.modules._protected.Alloy
         {
             base.OnInit(e);
             PopulateServiceListControl();
+            PopulateStyleUrlSuggestionControl();
             if (!IsPostBack)
             {
                 BindList();
             }
+
             SystemPrefixControl.Heading = "Bright software Editor settings";
         }
 
@@ -82,6 +85,10 @@ namespace EpiserverSite5.modules._protected.Alloy
             zoomLevel.Text = savedValues.ZoomLevel.ToString();
             defaultLongitude.Text = savedValues.DefaultLongitude.ToString(CultureInfo.InvariantCulture);
             defaultLatitude.Text = savedValues.DefaultLatitude.ToString(CultureInfo.InvariantCulture);
+            if (availableServices.SelectedValue == MapsEditorService.Mapbox.ToString())
+            {
+                StyleUrlRow.Visible = true;
+            }
         }
 
         private void PopulateServiceListControl()
@@ -90,9 +97,44 @@ namespace EpiserverSite5.modules._protected.Alloy
 
             if (ddl != null)
             {
-                ddl.DataSource = new List<string> { "GoogleMaps", "Mapbox" };
+                ddl.DataSource = new List<string> {"GoogleMaps", "Mapbox"};
                 ddl.DataBind();
                 ddl.Visible = true;
+            }
+        }
+
+        private void PopulateStyleUrlSuggestionControl()
+        {
+            var ddl = GeneralSettings.FindControl("styleUrlSuggestion") as DropDownList;
+
+            if (ddl != null)
+            {
+                ddl.DataSource = new List<string>
+                {
+                    "mapbox://styles/mapbox/streets-v11",
+                    "mapbox://styles/mapbox/outdoors-v11",
+                    "mapbox://styles/mapbox/light-v10",
+                    "mapbox://styles/mapbox/dark-v10",
+                    "mapbox://styles/mapbox/satellite-v9",
+                    "mapbox://styles/mapbox/satellite-streets-v11"
+                };
+                ddl.DataBind();
+                ddl.Visible = true;
+            }
+        }
+
+        protected void myListDropDown_Change(object sender, EventArgs e)
+        {
+            var ddlListFind = (DropDownList)sender;
+            styleUrl.Text = ddlListFind.Text;
+        }
+
+        protected void availableServices_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            var dropDownList = (DropDownList) sender;
+            if (dropDownList.SelectedItem.Value == MapsEditorService.Mapbox.ToString())
+            {
+                StyleUrlRow.Visible = true;
             }
         }
     }

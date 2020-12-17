@@ -286,9 +286,6 @@
                 this.longitudeTextbox.set('value', '');
                 this.latitudeTextbox.set('value', '');
 
-                // Clear search box
-                this.searchTextbox.set("value", '');
-
                 // Remove the map marker, if any
                 if (this._marker) {
                     this._marker.setMap(null);

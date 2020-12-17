@@ -7,8 +7,8 @@
 <asp:Content ContentPlaceHolderID="FullRegion" runat="server">
     <div class="epi-contentContainer epi-padding">
         <div class="epi-contentArea">
-            <EPiServerUI:SystemPrefix ID="SystemPrefixControl" runat="server" />
-            <asp:ValidationSummary ID="ValidationSummary" runat="server" CssClass="EP-validationSummary" ForeColor="Black" />
+            <EPiServerUI:SystemPrefix ID="SystemPrefixControl" runat="server"/>
+            <asp:ValidationSummary ID="ValidationSummary" runat="server" CssClass="EP-validationSummary" ForeColor="Black"/>
             <%= AntiForgery.GetHtml() %>
         </div>
         <style type="text/css">
@@ -68,35 +68,35 @@
                         <div class="epi-indent">
                         </div>
                         <div>
-                            <asp:Label runat="server" AssociatedControlID="availableServices" Translate="Service" />
-                            <asp:DropDownList ID="availableServices" SkinID="Custom" runat="server" />
-                            <asp:RequiredFieldValidator ID="availableServicesRequired" ControlToValidate="availableServices" Text="*" EnableClientScript="true" runat="server" />
+                            <asp:Label runat="server" AssociatedControlID="availableServices" Translate="Service"/>
+                            <asp:DropDownList ID="availableServices" SkinID="Custom" runat="server" OnSelectedIndexChanged="availableServices_OnSelectedIndexChanged"/>
+                            <asp:RequiredFieldValidator ID="availableServicesRequired" ControlToValidate="availableServices" Text="*" EnableClientScript="true" runat="server"/>
                         </div>
 
                         <div>
-                            <asp:Label runat="server" AssociatedControlID="apiKey" Translate="Api key" />
-                            <asp:TextBox runat="server" ID="apiKey" Text='<%# CurrentMapsEditorData.ApiKey %>' />
-                            <asp:RequiredFieldValidator ID="apiKeyRequired" ControlToValidate="apiKey" Text="*" EnableClientScript="true" runat="server" />
+                            <asp:Label runat="server" AssociatedControlID="apiKey" Translate="Api key"/>
+                            <asp:TextBox runat="server" ID="apiKey" Text='<%# CurrentMapsEditorData.ApiKey %>'/>
+                            <asp:RequiredFieldValidator ID="apiKeyRequired" ControlToValidate="apiKey" Text="*" EnableClientScript="true" runat="server"/>
+                        </div>
+                        <div runat="server" id="StyleUrlRow" Visible="false">
+                            <asp:Label runat="server" AssociatedControlID="styleUrl" Translate="Style Url"/>
+                            <asp:TextBox runat="server" ID="styleUrl" Text='<%# CurrentMapsEditorData.StyleUrl %>'/>
+                            <asp:DropDownList AutoPostBack="true" ID="styleUrlSuggestion" SkinID="Custom" runat="server" OnSelectedIndexChanged="myListDropDown_Change"/>
                         </div>
                         <div>
-                            <asp:Label runat="server" AssociatedControlID="styleUrl" Translate="Style Url" />
-                            <asp:TextBox runat="server" ID="styleUrl" Text='<%# CurrentMapsEditorData.StyleUrl %>' />
-                            <asp:RequiredFieldValidator ID="styleUrlRequired" ControlToValidate="styleUrl" Text="*" EnableClientScript="true" runat="server" />
+                            <asp:Label runat="server" AssociatedControlID="defaultLatitude" Translate="Default latitude" type="number" step="any"/>
+                            <asp:TextBox runat="server" ID="defaultLatitude" Text='<%# CurrentMapsEditorData.DefaultLatitude %>'/>
+                            <asp:RequiredFieldValidator ID="defaultLatitudeRequired" ControlToValidate="defaultLatitude" Text="*" EnableClientScript="true" runat="server"/>
                         </div>
                         <div>
-                            <asp:Label runat="server" AssociatedControlID="defaultLatitude" Translate="Default latitude" type="number" step="any" />
-                            <asp:TextBox runat="server" ID="defaultLatitude" Text='<%# CurrentMapsEditorData.DefaultLatitude %>' />
-                            <asp:RequiredFieldValidator ID="defaultLatitudeRequired" ControlToValidate="defaultLatitude" Text="*" EnableClientScript="true" runat="server" />
+                            <asp:Label runat="server" AssociatedControlID="defaultLongitude" Translate="Default longitude" type="number" step="any"/>
+                            <asp:TextBox runat="server" ID="defaultLongitude" Text='<%# CurrentMapsEditorData.DefaultLongitude %>'/>
+                            <asp:RequiredFieldValidator ID="defaultLongitudeRequired" ControlToValidate="defaultLongitude" Text="*" EnableClientScript="true" runat="server"/>
                         </div>
                         <div>
-                            <asp:Label runat="server" AssociatedControlID="defaultLongitude" Translate="Default longitude" type="number" step="any" />
-                            <asp:TextBox runat="server" ID="defaultLongitude" Text='<%# CurrentMapsEditorData.DefaultLongitude %>' />
-                            <asp:RequiredFieldValidator ID="defaultLongitudeRequired" ControlToValidate="defaultLongitude" Text="*" EnableClientScript="true" runat="server" />
-                        </div>
-                        <div>
-                            <asp:Label runat="server" AssociatedControlID="zoomLevel" Translate="Zoom level" />
-                            <asp:TextBox runat="server" ID="zoomLevel" Text='<%# CurrentMapsEditorData.ZoomLevel %>' type="number" />
-                            <asp:RequiredFieldValidator ID="zoomLevelRequired" ControlToValidate="zoomLevel" Text="*" EnableClientScript="true" runat="server" />
+                            <asp:Label runat="server" AssociatedControlID="zoomLevel" Translate="Zoom level"/>
+                            <asp:TextBox runat="server" ID="zoomLevel" Text='<%# CurrentMapsEditorData.ZoomLevel %>' type="number"/>
+                            <asp:RequiredFieldValidator ID="zoomLevelRequired" ControlToValidate="zoomLevel" Text="*" EnableClientScript="true" runat="server"/>
                         </div>
                         <div>
                             <asp:Button ID="btnNew" runat="server" Text="Save" OnClick="btnSave_Click"

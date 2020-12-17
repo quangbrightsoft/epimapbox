@@ -85,6 +85,15 @@ namespace EpiserverSite5.modules._protected.Alloy {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator apiKeyRequired;
         
         /// <summary>
+        /// StyleUrlRow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify, move the field declaration from the designer file to a code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StyleUrlRow;
+        
+        /// <summary>
         /// styleUrl control.
         /// </summary>
         /// <remarks>
@@ -94,13 +103,13 @@ namespace EpiserverSite5.modules._protected.Alloy {
         protected global::System.Web.UI.WebControls.TextBox styleUrl;
         
         /// <summary>
-        /// styleUrlRequired control.
+        /// styleUrlSuggestion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify, move the field declaration from the designer file to a code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator styleUrlRequired;
+        protected global::System.Web.UI.WebControls.DropDownList styleUrlSuggestion;
         
         /// <summary>
         /// defaultLatitude control.
