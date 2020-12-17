@@ -166,6 +166,24 @@ namespace EpiserverSite5.modules._protected.Alloy {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator zoomLevelRequired;
         
         /// <summary>
+        /// markerIconUrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify, move the field declaration from the designer file to a code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox markerIconUrl;
+        
+        /// <summary>
+        /// markerUrlValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify, move the field declaration from the designer file to a code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator markerUrlValidator;
+        
+        /// <summary>
         /// btnNew control.
         /// </summary>
         /// <remarks>

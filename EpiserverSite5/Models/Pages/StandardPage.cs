@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using EPiServer.Find;
 using EpiserverSite5.Services;
 
 namespace EpiserverSite5.Models.Pages

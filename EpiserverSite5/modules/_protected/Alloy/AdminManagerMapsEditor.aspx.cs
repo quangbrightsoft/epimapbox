@@ -23,18 +23,9 @@ namespace EpiserverSite5.modules._protected.Alloy
     {
         public Injected<IMapsEditorRepository> MapsEditorRepository { get; set; }
 
-        public object SiteHosts { get; private set; }
-
-        protected MapsEditorData CurrentMapsEditorData
-        {
-            get { return GetDataItem() as MapsEditorData; }
-        }
-
+        protected MapsEditorData CurrentMapsEditorData => GetDataItem() as MapsEditorData;
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            var ddl = GeneralSettings.FindControl("availableServices") as DropDownList;
-            var apiKey = GeneralSettings.FindControl("apiKey") as TextBox;
-            var styleUrl = GeneralSettings.FindControl("styleUrl") as TextBox;
             var savedValues = MapsEditorRepository.Service.GetAllMapsEditorData().FirstOrDefault() ??
                               new MapsEditorData();
 
@@ -45,12 +36,14 @@ namespace EpiserverSite5.modules._protected.Alloy
             //    ValidationSummary.te
             //}
 
-            savedValues.Service = (MapsEditorService) Enum.Parse(typeof(MapsEditorService), ddl.SelectedValue);
+            savedValues.Service =
+                (MapsEditorService) Enum.Parse(typeof(MapsEditorService), availableServices.SelectedValue);
             savedValues.ApiKey = apiKey.Text;
             savedValues.StyleUrl = styleUrl.Text;
             savedValues.ZoomLevel = int.Parse(zoomLevel.Text);
             savedValues.DefaultLatitude = double.Parse(defaultLatitude.Text);
             savedValues.DefaultLongitude = double.Parse(defaultLongitude.Text);
+            savedValues.MarkerIconUrl = markerIconUrl.Text;
 
             MapsEditorRepository.Service.Save(savedValues);
             BindList();
@@ -82,60 +75,56 @@ namespace EpiserverSite5.modules._protected.Alloy
             availableServices.SelectedValue = savedValues?.Service.ToString() ?? "";
             styleUrl.Text = savedValues.StyleUrl;
             apiKey.Text = savedValues.ApiKey;
+            markerIconUrl.Text = savedValues.MarkerIconUrl;
             zoomLevel.Text = savedValues.ZoomLevel.ToString();
             defaultLongitude.Text = savedValues.DefaultLongitude.ToString(CultureInfo.InvariantCulture);
             defaultLatitude.Text = savedValues.DefaultLatitude.ToString(CultureInfo.InvariantCulture);
             if (availableServices.SelectedValue == MapsEditorService.Mapbox.ToString())
             {
                 StyleUrlRow.Visible = true;
+                if (DefaultStyleUrls.Contains(styleUrl.Text))
+                {
+                    styleUrlSuggestion.SelectedValue = styleUrl.Text;
+                }
             }
         }
 
         private void PopulateServiceListControl()
         {
-            var ddl = GeneralSettings.FindControl("availableServices") as DropDownList;
-
-            if (ddl != null)
-            {
-                ddl.DataSource = new List<string> {"GoogleMaps", "Mapbox"};
-                ddl.DataBind();
-                ddl.Visible = true;
-            }
+            availableServices.DataSource = new List<string> {"GoogleMaps", "Mapbox"};
+            availableServices.DataBind();
+            availableServices.Visible = true;
         }
 
         private void PopulateStyleUrlSuggestionControl()
         {
-            var ddl = GeneralSettings.FindControl("styleUrlSuggestion") as DropDownList;
-
-            if (ddl != null)
-            {
-                ddl.DataSource = new List<string>
-                {
-                    "mapbox://styles/mapbox/streets-v11",
-                    "mapbox://styles/mapbox/outdoors-v11",
-                    "mapbox://styles/mapbox/light-v10",
-                    "mapbox://styles/mapbox/dark-v10",
-                    "mapbox://styles/mapbox/satellite-v9",
-                    "mapbox://styles/mapbox/satellite-streets-v11"
-                };
-                ddl.DataBind();
-                ddl.Visible = true;
-            }
+            styleUrlSuggestion.DataSource = DefaultStyleUrls;
+            styleUrlSuggestion.DataBind();
+            styleUrlSuggestion.Visible = true;
         }
+
+        private static List<string> DefaultStyleUrls =>
+            new List<string>
+            {
+                string.Empty,
+                "mapbox://styles/mapbox/streets-v11",
+                "mapbox://styles/mapbox/outdoors-v11",
+                "mapbox://styles/mapbox/light-v10",
+                "mapbox://styles/mapbox/dark-v10",
+                "mapbox://styles/mapbox/satellite-v9",
+                "mapbox://styles/mapbox/satellite-streets-v11"
+            };
 
         protected void myListDropDown_Change(object sender, EventArgs e)
         {
-            var ddlListFind = (DropDownList)sender;
+            var ddlListFind = (DropDownList) sender;
             styleUrl.Text = ddlListFind.Text;
         }
 
         protected void availableServices_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             var dropDownList = (DropDownList) sender;
-            if (dropDownList.SelectedItem.Value == MapsEditorService.Mapbox.ToString())
-            {
-                StyleUrlRow.Visible = true;
-            }
+            StyleUrlRow.Visible = dropDownList.SelectedItem.Value == MapsEditorService.Mapbox.ToString();
         }
     }
 }

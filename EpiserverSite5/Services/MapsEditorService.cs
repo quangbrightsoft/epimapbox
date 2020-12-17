@@ -18,6 +18,7 @@ namespace EpiserverSite5.Services
         public int ZoomLevel { get; set; }
         public double DefaultLatitude { get; set; }
         public double DefaultLongitude { get; set; }
+        public string MarkerIconUrl { get; set; }
     }
 
     public enum MapsEditorService

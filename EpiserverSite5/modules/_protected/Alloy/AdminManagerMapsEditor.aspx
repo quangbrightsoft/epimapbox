@@ -68,35 +68,46 @@
                         <div class="epi-indent">
                         </div>
                         <div>
-                            <asp:Label runat="server" AssociatedControlID="availableServices" Translate="Service"/>
-                            <asp:DropDownList ID="availableServices" SkinID="Custom" runat="server" OnSelectedIndexChanged="availableServices_OnSelectedIndexChanged"/>
+                            <asp:Label runat="server" AssociatedControlID="availableServices" Text="Service"/>
+                            <asp:DropDownList ID="availableServices" AutoPostBack="True" runat="server" OnSelectedIndexChanged="availableServices_OnSelectedIndexChanged"/>
                             <asp:RequiredFieldValidator ID="availableServicesRequired" ControlToValidate="availableServices" Text="*" EnableClientScript="true" runat="server"/>
                         </div>
 
                         <div>
-                            <asp:Label runat="server" AssociatedControlID="apiKey" Translate="Api key"/>
+                            <asp:Label runat="server" AssociatedControlID="apiKey" Text="Api key"/>
                             <asp:TextBox runat="server" ID="apiKey" Text='<%# CurrentMapsEditorData.ApiKey %>'/>
                             <asp:RequiredFieldValidator ID="apiKeyRequired" ControlToValidate="apiKey" Text="*" EnableClientScript="true" runat="server"/>
                         </div>
                         <div runat="server" id="StyleUrlRow" Visible="false">
-                            <asp:Label runat="server" AssociatedControlID="styleUrl" Translate="Style Url"/>
+                            <asp:Label runat="server" AssociatedControlID="styleUrl" Text="Style Url"/>
                             <asp:TextBox runat="server" ID="styleUrl" Text='<%# CurrentMapsEditorData.StyleUrl %>'/>
-                            <asp:DropDownList AutoPostBack="true" ID="styleUrlSuggestion" SkinID="Custom" runat="server" OnSelectedIndexChanged="myListDropDown_Change"/>
+                            <asp:DropDownList AutoPostBack="true" ID="styleUrlSuggestion" runat="server" OnSelectedIndexChanged="myListDropDown_Change"/>
                         </div>
                         <div>
-                            <asp:Label runat="server" AssociatedControlID="defaultLatitude" Translate="Default latitude" type="number" step="any"/>
+                            <asp:Label runat="server" AssociatedControlID="defaultLatitude" Text="Default latitude" type="number" step="any"/>
                             <asp:TextBox runat="server" ID="defaultLatitude" Text='<%# CurrentMapsEditorData.DefaultLatitude %>'/>
                             <asp:RequiredFieldValidator ID="defaultLatitudeRequired" ControlToValidate="defaultLatitude" Text="*" EnableClientScript="true" runat="server"/>
                         </div>
                         <div>
-                            <asp:Label runat="server" AssociatedControlID="defaultLongitude" Translate="Default longitude" type="number" step="any"/>
+                            <asp:Label runat="server" AssociatedControlID="defaultLongitude" Text="Default longitude" type="number" step="any"/>
                             <asp:TextBox runat="server" ID="defaultLongitude" Text='<%# CurrentMapsEditorData.DefaultLongitude %>'/>
                             <asp:RequiredFieldValidator ID="defaultLongitudeRequired" ControlToValidate="defaultLongitude" Text="*" EnableClientScript="true" runat="server"/>
                         </div>
                         <div>
-                            <asp:Label runat="server" AssociatedControlID="zoomLevel" Translate="Zoom level"/>
+                            <asp:Label runat="server" AssociatedControlID="zoomLevel" Text="Zoom level"/>
                             <asp:TextBox runat="server" ID="zoomLevel" Text='<%# CurrentMapsEditorData.ZoomLevel %>' type="number"/>
                             <asp:RequiredFieldValidator ID="zoomLevelRequired" ControlToValidate="zoomLevel" Text="*" EnableClientScript="true" runat="server"/>
+                        </div>
+                        <div>
+                            <asp:Label runat="server" AssociatedControlID="markerIconUrl" Text="Marker icon Url"/>
+                            <asp:TextBox runat="server" ID="markerIconUrl" Text='<%# CurrentMapsEditorData.MarkerIconUrl %>' type="text"/>
+                            <asp:RegularExpressionValidator
+                                ID="markerUrlValidator"
+                                runat="server"
+                                ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?"
+                                ControlToValidate="markerIconUrl"
+                                ErrorMessage="Input valid Internet URL!">
+                            </asp:RegularExpressionValidator>
                         </div>
                         <div>
                             <asp:Button ID="btnNew" runat="server" Text="Save" OnClick="btnSave_Click"

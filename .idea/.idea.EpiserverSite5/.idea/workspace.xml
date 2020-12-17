@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aa4068fb-f2b5-4d5b-95bf-10a6cbaea96f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EpiserverSite5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EpiserverSite5/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Models/Pages/StandardPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Models/Pages/StandardPage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Services/MapsEditorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Services/MapsEditorService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.designer.cs" afterDir="false" />
@@ -19,20 +21,22 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/24E8C849-0512-4605-96C2-864CC263FEF1/f5/0c6137b9/ListControl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/EpiserverSite5/modules/_protected/CMS/web.config" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/264595AB-D0B2-4D9E-A66F-52C13DC90AA5/10/822b092a/IUIRole.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/264595AB-D0B2-4D9E-A66F-52C13DC90AA5/95/28279e43/EditorDescriptor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/EpiserverSite5/Services/MapsEditorService.cs" />
       <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/MapboxWidgetTemplate.html" />
       <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/GoogleMapsEditor.js" />
       <option value="$PROJECT_DIR$/EpiserverSite5/Web.config" />
-      <option value="$PROJECT_DIR$/EpiserverSite5/Models/Pages/StandardPage.cs" />
       <option value="$PROJECT_DIR$/EpiserverSite5/Models/Pages/StartPage.cs" />
-      <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/Editor.js" />
       <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/GoogleMapsWidgetTemplate.html" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/Editor.js" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/Models/Pages/StandardPage.cs" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/Services/MapsEditorService.cs" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.designer.cs" />
       <option value="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx" />
       <option value="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.cs" />
     </changedPaths>
@@ -57,7 +61,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
