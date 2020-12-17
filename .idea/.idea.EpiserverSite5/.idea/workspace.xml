@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa4068fb-f2b5-4d5b-95bf-10a6cbaea96f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Business/AdministratorRegistrationPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Business/AdministratorRegistrationPage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Controllers/GDPRApiDemoPageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Controllers/GDPRApiDemoPageController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Controllers/RegisterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Controllers/RegisterController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Models/Pages/GDPRApiDemoPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Models/Pages/GDPRApiDemoPage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/GoogleMapsEditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/GoogleMapsWidgetTemplate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/MapboxWidgetTemplate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EpiserverSite5/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EpiserverSite5/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.EpiserverSite5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EpiserverSite5/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/Editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/Editor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/WidgetTemplate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/WidgetTemplate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EpiserverSite5/EpiserverSite5.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/EpiserverSite5.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EpiserverSite5/Models/Pages/StandardPage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Models/Pages/StandardPage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Models/Register/RegisterViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Models/Register/RegisterViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Models/ViewModels/GDPRDemoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Models/ViewModels/GDPRDemoModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Services/MapsEditorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Services/MapsEditorService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Views/Register/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Views/Register/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EpiserverSite5/Web.config" beforeDir="false" afterPath="$PROJECT_DIR$/EpiserverSite5/Web.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +28,19 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/EpiserverSite5/modules/_protected/CMS/web.config" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/264595AB-D0B2-4D9E-A66F-52C13DC90AA5/10/822b092a/IUIRole.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/264595AB-D0B2-4D9E-A66F-52C13DC90AA5/95/28279e43/EditorDescriptor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/EpiserverSite5/Services/MapsEditorService.cs" />
       <option value="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.cs" />
       <option value="$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/MapboxWidgetTemplate.html" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/Editor.js" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/GoogleMapsWidgetTemplate.html" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/ClientResources/BrssMapsEditor/GoogleMapsEditor.js" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/Web.config" />
+      <option value="$PROJECT_DIR$/EpiserverSite5/Models/Pages/StandardPage.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ljcH8e3WyjDp4BWhKpe7yZAmvk" />
@@ -46,9 +51,19 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.24828114" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -108,26 +123,22 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/EpiserverSite5/modules/_protected/Alloy/AdminManagerMapsEditor.aspx.cs</url>
-          <line>47</line>
-          <properties documentPath="C:\Users\admin\source\repos\epiMapbox\EpiserverSite5\modules\_protected\Alloy\AdminManagerMapsEditor.aspx.cs" initialLine="46" containingFunctionPresentation="method 'btnSave_Click'">
-            <startOffsets>
-              <option value="1916" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1949" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

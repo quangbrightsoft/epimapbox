@@ -100,6 +100,9 @@
           <e p="BrssMapsEditor" t="Include">
             <e p="Async.js" t="Include" />
             <e p="Editor.js" t="Include" />
+            <e p="GoogleMapsEditor.js" t="Include" />
+            <e p="GoogleMapsWidgetTemplate.html" t="Include" />
+            <e p="MapboxWidgetTemplate.html" t="Include" />
             <e p="nls" t="Include">
               <e p="Labels.js" t="Include" />
               <e p="sv" t="Include">
@@ -107,7 +110,6 @@
               </e>
             </e>
             <e p="WidgetTemplate.css" t="Include" />
-            <e p="WidgetTemplate.html" t="Include" />
           </e>
           <e p="Images" t="Include">
             <e p="icons" t="Include">

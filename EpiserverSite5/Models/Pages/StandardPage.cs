@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using EPiServer.Find;
 using EpiserverSite5.Services;
 
 namespace EpiserverSite5.Models.Pages
@@ -30,47 +31,50 @@ namespace EpiserverSite5.Models.Pages
             Order = 320)]
         public virtual ContentArea MainContentArea { get; set; }
 
-        [Display(
-            GroupName = SystemTabNames.Content,
-            Order = 320)]
-        [UIHint("MapboxEditor")]
-        public virtual string Coordinates { get; set; }
     }
 
-    [EditorDescriptorRegistration(TargetType = typeof(string), UIHint = UIHint, EditorDescriptorBehavior = EditorDescriptorBehavior.OverrideDefault)]
+    [EditorDescriptorRegistration(TargetType = typeof(string), UIHint = "MapboxEditor",
+        EditorDescriptorBehavior = EditorDescriptorBehavior.OverrideDefault)]
     public class CustomGoogleMapsEditorDescriptor : MapboxEditor
     {
-        public Injected<IMapsEditorRepository> MapsEditorRepository { get; set; }
+        public override void ModifyMetadata(ExtendedMetadata metadata, IEnumerable<Attribute> attributes)
+        {
+            base.ModifyMetadata(metadata, attributes);
+        }
+    }
+
+    public abstract class MapboxEditor : EditorDescriptor
+    {
+        private Injected<IMapsEditorRepository> MapsEditorRepository { get; set; }
 
         public override void ModifyMetadata(ExtendedMetadata metadata, IEnumerable<Attribute> attributes)
         {
             base.ModifyMetadata(metadata, attributes);
             var savedConfig = MapsEditorRepository.Service.GetAllMapsEditorData().FirstOrDefault();
-            metadata.EditorConfiguration["apiKey"] = savedConfig.ApiKey ?? "pk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxpNGNvMGFrYzJyb2QzNjJpOGR0diJ9.fwBENvuqXz1O3zrCzCYLcA";
-            metadata.EditorConfiguration["defaultZoom"] = savedConfig.ZoomLevel != default ? savedConfig.ZoomLevel : 5;
-            metadata.EditorConfiguration["styleUrl"] = savedConfig.StyleUrl ?? "mapbox://styles/mapbox/light-v10";
-            metadata.EditorConfiguration["defaultCoordinates"] = new
+            switch (savedConfig?.Service)
             {
-                latitude = savedConfig.DefaultLatitude != default ? savedConfig.DefaultLatitude : 21.002449485238547,
-                longitude = savedConfig.DefaultLongitude != default ? savedConfig.DefaultLongitude : 105.80183683128283
-            };
-        }
-    }
-    public abstract class MapboxEditor : EditorDescriptor
-    {
-        public const string UIHint = "MapboxEditor";
+                case null:
+                case MapsEditorService.Mapbox:
+                    ClientEditingClass = "brss/Editor";
+                    break;
+                case MapsEditorService.GoogleMaps:
+                    ClientEditingClass = "brss/GoogleMapsEditor";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
 
-        public override void ModifyMetadata(ExtendedMetadata metadata, IEnumerable<Attribute> attributes)
-        {
-            ClientEditingClass = "brss/Editor";
-            metadata.EditorConfiguration.Add("apiKey", "AIzaSyCCkZI3w943tyqyZCkbbEB2Pl1W0eH1WPc");
-            metadata.EditorConfiguration.Add("defaultZoom", 5);
+            metadata.EditorConfiguration.Add("apiKey", savedConfig?.ApiKey ??
+                                                       "pk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxpNGNvMGFrYzJyb2QzNjJpOGR0diJ9.fwBENvuqXz1O3zrCzCYLcA");
+            metadata.EditorConfiguration.Add("defaultZoom",
+                savedConfig?.ZoomLevel ?? 5);
+            metadata.EditorConfiguration.Add("styleUrl", savedConfig?.StyleUrl ?? "mapbox://styles/mapbox/light-v10");
             metadata.EditorConfiguration.Add("defaultCoordinates", new
             {
-                latitude = 59.336,
-                longitude = 18.063
+                latitude =
+                    savedConfig?.DefaultLatitude ?? 21.002449485238547,
+                longitude = savedConfig?.DefaultLongitude ?? 105.80183683128283
             });
-            base.ModifyMetadata(metadata, attributes);
         }
     }
 }

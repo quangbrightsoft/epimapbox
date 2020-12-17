@@ -1,0 +1,19 @@
+﻿<div class="dijitInline">
+
+    <input type="text" data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="searchTextbox"
+           placeholder="${_localized.search}" style="width:99.5%"/>
+
+    <div id="map-canvas" data-dojo-attach-point="canvas" style="width: 100%; height: 240px; margin: 2px 0 5px 0"></div>
+
+    <div class="dijitInputContainer">
+        <input type="text" disabled placeholder="${_localized.latitude}" title="${_localized.latitude}"
+               data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="latitudeTextbox"/>
+        <input type="text" disabled placeholder="${_localized.longitude}" title="${_localized.longitude}"
+               data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="longitudeTextbox"/>
+        <button data-dojo-type="dijit/form/Button" data-dojo-attach-point="clearButton"
+                data-dojo-attach-event="onClick:clearCoordinates"
+                data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconCancel', showLabel: false">${_localized.clear}
+        </button>
+    </div>
+
+</div>

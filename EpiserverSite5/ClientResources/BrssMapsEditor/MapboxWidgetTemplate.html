@@ -1,0 +1,16 @@
+﻿<div class="dijitInline box-maps-editor">
+    <div id='mapbox-canvas' data-dojo-attach-point="canvas" style='width:450px; height: 300px;'></div>
+
+    <div class="dijitInputContainer editor-map-coordinates">
+        <input type="text" disabled placeholder="${_localized.latitude}" title="${_localized.latitude}"
+               data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="latitudeTextbox"/>
+        <input type="text" disabled placeholder="${_localized.longitude}" title="${_localized.longitude}"
+               data-dojo-type="dijit/form/TextBox" data-dojo-attach-point="longitudeTextbox"/>
+        <button class="editor-map-clear" data-dojo-type="dijit/form/Button" data-dojo-attach-point="clearButton"
+                data-dojo-attach-event="onClick:clearCoordinates"
+                data-dojo-props="iconClass:'dijitEditorIcon dijitEditorIconCancel', showLabel: false">
+            ${_localized.clear}
+        </button>
+    </div>
+
+</div>

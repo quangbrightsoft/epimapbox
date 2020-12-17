@@ -1,45 +1,41 @@
 ﻿define([
-    "dojo/on", // To connect events
-    "dojo/_base/declare", // Used to declare the actual widget
-    "dojo/_base/config", // Used to check if client code debugging is enabled
-    "dojo/aspect", // Used to attach to events in an aspect-oriented way to inject behaviors
-    "dojo/Deferred", // Used to allow code to wait for Google Maps to be loaded
+        "dojo/on", // To connect events
+        "dojo/_base/declare", // Used to declare the actual widget
+        "dojo/_base/config", // Used to check if client code debugging is enabled
+        "dojo/aspect", // Used to attach to events in an aspect-oriented way to inject behaviors
+        "dojo/Deferred", // Used to allow code to wait for Google Maps to be loaded
 
-    "dijit/registry", // Used to get access to other dijits in the app
-    "dijit/WidgetSet", // To be able to use 'byClass' when querying the dijit registry
-    "dijit/_Widget", // Base class for all widgets
-    "dijit/_TemplatedMixin", // Widgets will be based on an external template (string literal, external file, or URL request)
-    "dijit/_WidgetsInTemplateMixin", // The widget will in itself contain additional widgets
+        "dijit/registry", // Used to get access to other dijits in the app
+        "dijit/WidgetSet", // To be able to use 'byClass' when querying the dijit registry
+        "dijit/_Widget", // Base class for all widgets
+        "dijit/_TemplatedMixin", // Widgets will be based on an external template (string literal, external file, or URL request)
+        "dijit/_WidgetsInTemplateMixin", // The widget will in itself contain additional widgets
 
-    "epi/epi", // For example to use areEqual to compare property values
-    "epi/shell/widget/_ValueRequiredMixin", // In order to check if the property is in a readonly state
-    "epi/shell/widget/dialog/LightWeight", // Used to display the help message
+        "epi/epi", // For example to use areEqual to compare property values
+        "epi/shell/widget/_ValueRequiredMixin", // In order to check if the property is in a readonly state
+        "epi/shell/widget/dialog/LightWeight", // Used to display the help message
 
-    "dojo/i18n!./nls/Labels", // Localization files containing translations
+        "dojo/i18n!./nls/Labels", // Localization files containing translations
 
-    "./Async",
+        "./Async",
 
-    // 'xstyle/css!./WidgetTemplate.css'
-],
+        'xstyle/css!./WidgetTemplate.css'
+    ],
     function (
         on,
         declare,
         config,
         aspect,
         Deferred,
-
         registry,
         WidgetSet,
         _Widget,
         _TemplatedMixin,
         _WidgetsInTemplateMixin,
-
         epi,
         _ValueRequiredMixin,
         LightWeight,
-
         Labels,
-
         Async
     ) {
         return declare([_Widget, _TemplatedMixin, _WidgetsInTemplateMixin, _ValueRequiredMixin], {
@@ -59,12 +55,11 @@
 
             // Property settings (set by editor descriptor)
             apiKey: null,
-            styleUrl: null,
             defaultZoom: null,
             defaultCoordinates: null,
 
             // Load HTML template from the same location as the widget
-            templateString: dojo.cache("brss", "MapboxWidgetTemplate.html"),
+            templateString: dojo.cache("brss", "GoogleMapsWidgetTemplate.html"),
 
             // Event used to notify EPiServer that the property value has changed
             onChange: function (value) {
@@ -82,34 +77,60 @@
                 var that = this; // Reduce number of scope binds
                 registry.byClass("dijit.layout.TabContainer").forEach(function (tab, i) {
                     aspect.after(tab, "selectChild", function () {
-                        //that.alignMap();
+                        that.alignMap();
                     });
                 });
 
-              
+                // Display help when help icon is clicked
+                on(this.helpIcon, "click", function (e) {
+                    e.preventDefault();
+
+                    if (!that._helpDialog) {
+
+                        that._helpDialog = new LightWeight({
+                            style: "width: 540px",
+                            closeIconVisible: true,
+                            showButtonContainer: false,
+                            onButtonClose: function () {
+                                that._helpDialog.hide();
+                            },
+                            _endDrag: function () {
+                                // HACK Avoid EPiServer bug, "Cannot read property 'userSetTransformId' of null" when close icon is clicked
+                            },
+                            title: that.localized.help.dialogTitle,
+                            content: that.localized.help.dialogHtml
+                        });
+                    }
+
+                    if (that._helpDialog.open) {
+                        that._helpDialog.hide();
+                    } else {
+                        that._helpDialog.show();
+                    }
+                });
             },
 
             // Dojo event triggered after 'postCreate', for example when JS resizing needs to be done
             startup: function () {
 
                 if (!this.apiKey) {
-                    console.warn("accesstoken key not set, ensure custom editor setting 'apiKey' is set through editor descriptor");
+                    console.warn("Google Maps API key not set, ensure custom editor setting 'apiKey' is set through editor descriptor");
                 }
-                const gljsUrl = "https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js";
-                const mapjsUrl = "https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js";
+
+                const googleMapsScriptUrl = "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=" + this.apiKey;
 
                 this._mapLoadPromise = new Deferred();
+
                 // Load Google Maps script
-                Async.load(mapjsUrl, function () {
+                Async.load(googleMapsScriptUrl, function () {
+
                     this.initializeMap();
 
                     // HACK Give EPiServer UI some time to load the view before resizing the map to ensure it aligns even after being hidden/displayed
                     // TODO Replace with event/aspect for when the edit view changes in the UI
-
                     setTimeout(function () {
-                        this._map.invalidateSize();
-                        //this.alignMap();
-                    }.bind(this), 2000);
+                        this.alignMap();
+                    }.bind(this), 250);
 
                     this._mapScriptAdded = true;
 
@@ -128,7 +149,7 @@
                 }
 
                 if (this._map && this._map.parentNode) {
-                    L.event.clearListeners(this._map, 'rightclick');
+                    google.maps.event.clearListeners(this._map, 'rightclick');
                     this._map.parentNode.removeChild(this._map);
                     this._map = null;
                 }
@@ -238,13 +259,12 @@
                     }
 
 
-
                     var location;
                     if (this._isComplexType()) {
-                        location = new L.latLng(value.latitude, value.longitude);
+                        location = new google.maps.LatLng(value.latitude, value.longitude);
                     } else {
                         var coordinates = value.split(",");
-                        location = new L.latLng(parseFloat(coordinates[0]), parseFloat(coordinates[1]));
+                        location = new google.maps.LatLng(parseFloat(coordinates[0]), parseFloat(coordinates[1]));
                     }
 
                     this.setMapLocation(location, null, true);
@@ -269,7 +289,7 @@
                 // Get the new value in the correct format
                 var value;
                 if (this._isComplexType()) {
-                    value = { latitude: parseFloat(latitude), longitude: parseFloat(longitude) };
+                    value = {latitude: parseFloat(latitude), longitude: parseFloat(longitude)};
                 } else {
                     value = latitude + "," + longitude;
                 }
@@ -303,15 +323,15 @@
             // Setup the Google Maps canvas
             initializeMap: function () {
 
+                var defaultCoordinates = new google.maps.LatLng(this.defaultCoordinates.latitude, this.defaultCoordinates.longitude);
 
                 // Center on current coordinates (i.e. property value), or a default location if no coordinates are set
                 if (this.hasCoordinates()) {
                     if (typeof this.value === "string") {
                         var coordinates = this.value.split(',');
-                        defaultCoordinates = new L.LatLng(parseFloat(coordinates[0]), parseFloat(coordinates[1]));
-                    }
-                    else if (typeof this.value === "object") {
-                        defaultCoordinates = new L.LatLng(this.value.latitude, this.value.longitude);
+                        defaultCoordinates = new google.maps.LatLng(parseFloat(coordinates[0]), parseFloat(coordinates[1]));
+                    } else if (typeof this.value === "object") {
+                        defaultCoordinates = new google.maps.LatLng(this.value.latitude, this.value.longitude);
                     }
                 }
 
@@ -319,30 +339,65 @@
                 var mapOptions = {
                     zoom: this.defaultZoom,
                     disableDefaultUI: true,
+                    center: defaultCoordinates,
                     disableDoubleClickZoom: this.readOnly,
                     scrollwheel: !this.readOnly,
                     draggable: !this.readOnly
                 };
 
+                // Load the map
+                this._map = new google.maps.Map(this.canvas, mapOptions);
 
-                //L.mapbox.accessToken = 'sk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxsczc1MDJnOTJwcWx1c3F5OWhpMyJ9.VnPV3Y0ZWLTpZaeK8_Lojg';
-                L.mapbox.accessToken = this.apiKey;
-                this._map = L.mapbox.map('mapbox-canvas')
-                    .setView([this.defaultCoordinates.latitude, this.defaultCoordinates.longitude], parseInt(this.defaultZoom))
-                    .addLayer(L.mapbox.styleLayer(this.styleUrl))
-                    .addControl(L.mapbox.geocoderControl('mapbox.places', {
-                        //keepOpen: true
-                    }));
+                // Display grayscale map if property is readonly
+                if (this.readOnly) {
 
+                    var grayStyle = [{
+                        featureType: "all",
+                        elementType: "all",
+                        stylers: [{saturation: -100}]
+                    }];
 
-                //// Allow user to change coordinates unless property is readonly
+                    var mapType = new google.maps.StyledMapType(grayStyle, {name: "Grayscale"});
+
+                    this._map.mapTypes.set('disabled', mapType);
+
+                    this._map.setMapTypeId('disabled');
+                }
+
+                // Add a marker to indicate the current coordinates, if any
+                if (this.hasCoordinates()) {
+                    this._marker = new google.maps.Marker({
+                        position: this._map.getCenter(),
+                        map: this._map
+                    });
+                }
+
+                // Allow user to change coordinates unless property is readonly
                 if (!this.readOnly) {
 
                     var that = this;
-                    this._map.on('click', function (e) {
-                        that.setMapLocation(e.latlng, null, false);
+
+                    // Update map marker and coordinate textboxes when map is right-clicked
+                    google.maps.event.addListener(this._map, "rightclick", function (event) {
+                        that.setMapLocation(event.latLng, null, false);
                     });
-                    
+
+                    // Add search textbox and when a place is selected, move pin and center map
+                    var searchBox = new google.maps.places.SearchBox(this.searchTextbox.textbox);
+
+                    // Remove Google Maps Searchbox default placeholder, as it won't recognize the placeholder attribute placed on the Textbox dijit
+                    this.searchTextbox.textbox.setAttribute('placeholder', '');
+
+                    google.maps.event.addListener(searchBox, 'places_changed', function () {
+                        var places = searchBox.getPlaces();
+
+                        if (places.length == 0) {
+                            return;
+                        }
+                        // Return focus to the textbox to ensure autosave works correctly and to also give a nice editor experience
+                        that.searchTextbox.focus();
+                        that.setMapLocation(places[0].geometry.location, 15, true);
+                    });
                 } else {
                     // Disable search box and clear button
                     this.searchTextbox.set("disabled", true);
@@ -353,27 +408,29 @@
             // Triggers a map resize, for example when the map is hidden/displayed to ensure it aligns properly
             alignMap: function () {
                 var center = this._map.getCenter();
-                L.event.trigger(this._map, "resize");
+                google.maps.event.trigger(this._map, "resize");
                 this._map.setCenter(center);
             },
 
             // Updates map marker location, centers on it (optional), sets the zoom level (optional) and updates coordinate textboxes for longitude and latitude values
-            setMapLocation: function (/* L.LatLng */ location, zoom, center) {
+            setMapLocation: function (/* google.maps.LatLng */ location, zoom, center) {
 
                 // Set the values of the coordinate textboxes to longitude and latitude, respectively
-                this.longitudeTextbox.set('value', location.lng);
-                this.latitudeTextbox.set('value', location.lat);
+                this.longitudeTextbox.set('value', location.lng());
+                this.latitudeTextbox.set('value', location.lat());
+
                 // Set the marker's position
                 if (!this._marker) { // No marker yet, create one
-                    this._marker = new L.Marker(location);
-                    this._marker.addTo(this._map);
-                } else {
-                    this._marker.setLatLng(location);
+                    this._marker = new google.maps.Marker({
+                        map: this._map
+                    });
                 }
+
+                this._marker.setPosition(location);
 
                 // Center on the location (optional)
                 if (center) {
-                    this._map.panTo(location);
+                    this._map.setCenter(location);
                 }
 
                 // Set map zoom level (optional)

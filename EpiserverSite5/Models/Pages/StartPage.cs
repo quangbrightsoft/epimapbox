@@ -49,6 +49,12 @@ namespace EpiserverSite5.Models.Pages
 
         [Display(GroupName = Global.GroupNames.SiteSettings)]
         public virtual SiteLogotypeBlock SiteLogotype { get; set; }
+        
+        [Display(
+            GroupName = SystemTabNames.Content,
+            Order = 320)]
+        [UIHint("MapboxEditor")]
+        public virtual string Coordinates1 { get; set; }
 
     }
 }
