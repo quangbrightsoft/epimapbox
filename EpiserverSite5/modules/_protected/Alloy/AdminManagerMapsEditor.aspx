@@ -106,7 +106,7 @@
                                 runat="server"
                                 ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?"
                                 ControlToValidate="markerIconUrl"
-                                ErrorMessage="Input valid Internet URL!">
+                                ErrorMessage="Url format is invalid">
                             </asp:RegularExpressionValidator>
                         </div>
                         <div>

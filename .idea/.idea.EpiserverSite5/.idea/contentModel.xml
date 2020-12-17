@@ -368,6 +368,7 @@
               <e p="ContactPage.cshtml" t="Include" />
               <e p="DateTime.cshtml" t="Include" />
               <e p="Image.cshtml" t="Include" />
+              <e p="MapboxEditor.cshtml" t="Include" />
               <e p="StringsCollection.cshtml" t="Include" />
             </e>
             <e p="FindTemplateHint.cshtml" t="Include" />

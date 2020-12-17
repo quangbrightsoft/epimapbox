@@ -82,7 +82,7 @@
                 var that = this; // Reduce number of scope binds
                 registry.byClass("dijit.layout.TabContainer").forEach(function (tab, i) {
                     aspect.after(tab, "selectChild", function () {
-                        //that.alignMap();
+                        that.alignMap();
                     });
                 });
 
@@ -311,18 +311,6 @@
                         defaultCoordinates = new L.LatLng(this.value.latitude, this.value.longitude);
                     }
                 }
-
-                // Render the map, but disable interaction if property is readonly
-                var mapOptions = {
-                    zoom: this.defaultZoom,
-                    disableDefaultUI: true,
-                    disableDoubleClickZoom: this.readOnly,
-                    scrollwheel: !this.readOnly,
-                    draggable: !this.readOnly
-                };
-
-
-                //L.mapbox.accessToken = 'sk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxsczc1MDJnOTJwcWx1c3F5OWhpMyJ9.VnPV3Y0ZWLTpZaeK8_Lojg';
                 L.mapbox.accessToken = this.apiKey;
                 this._map = L.mapbox.map('mapbox-canvas')
                     .setView([this.defaultCoordinates.latitude, this.defaultCoordinates.longitude], parseInt(this.defaultZoom))
@@ -349,9 +337,7 @@
 
             // Triggers a map resize, for example when the map is hidden/displayed to ensure it aligns properly
             alignMap: function () {
-                var center = this._map.getCenter();
-                L.event.trigger(this._map, "resize");
-                this._map.setCenter(center);
+                this._map.invalidateSize();
             },
 
             // Updates map marker location, centers on it (optional), sets the zoom level (optional) and updates coordinate textboxes for longitude and latitude values

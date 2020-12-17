@@ -1,0 +1,28 @@
+@using EPiServer.ServiceLocation
+@using EpiserverSite5.Services
+@model string
+@{
+    var repo = ServiceLocator.Current.GetInstance<IMapsEditorRepository>();
+    var result = repo.GetAllMapsEditorData().FirstOrDefault();
+    var type = MapsEditorService.Mapbox;
+    if (result != null)
+    {
+        type = result.Service;
+    }
+    var coordinates = Model != null ? Model.Split(',') : new string[] {"1", "1"};
+}
+<p>
+    @if (type == MapsEditorService.GoogleMaps)
+    {
+        <img
+            class=no-lazy-load style=width:100%
+            src="@String.Format("https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyAZgp2oGH_oVVOHPV-R1MnA8k2vD2G1US0&center={0},{1}&zoom=18&format=png&maptype=roadmap&style=feature:poi.business%7Celement:geometry%7Ccolor:0xff8080&style=feature:poi.business%7Celement:labels.icon%7Ccolor:0xf1c433&style=feature:poi.business%7Celement:labels.text.fill%7Ccolor:0x484848&style=feature:poi.place_of_worship%7Celement:geometry.fill%7Ccolor:0xff8080&style=feature:poi.place_of_worship%7Celement:labels.icon%7Ccolor:0xc0c0c0&size=540x350&visual_refresh=true&markers=size:mid%7Ccolor:ff0000%7Clabel:%7C2+L%C3%AA+V%C4%83n+Thi%C3%AAm,+Nh%C3%A2n+Ch%C3%ADnh,+Thanh+Xu%C3%A2n,+H%C3%A0+N%E1%BB%99i+100000,+Vietnam", coordinates[0], coordinates[1])" alt=image>
+    }
+    else
+    {
+        <img
+            class=no-lazy-load style=width:100%
+            src="@string.Format("https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-l+000({0},{1})/{0},{1},14.25,0,60/1200x1200?access_token=pk.eyJ1IjoibGVxdWFuZzEwMjQiLCJhIjoiY2tpaWxpNGNvMGFrYzJyb2QzNjJpOGR0diJ9.fwBENvuqXz1O3zrCzCYLcA", coordinates[1], coordinates[0])" alt=image>
+    }
+
+</p>
